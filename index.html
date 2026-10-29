@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object to Draft Laboratory Animals Rules, 2026 - VANDE MATARAM DAL</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+    body { background-color: #fbfbf9; color: #1c1917; padding: 24px 16px; display: flex; justify-content: center; }
+    .container { max-width: 440px; width: 100%; }
+    .badge { display: inline-block; background-color: #e7f3ea; color: #23532f; font-weight: 600; font-size: 13px; padding: 6px 12px; border-radius: 20px; margin-bottom: 16px; }
+    h1 { font-size: 22px; font-weight: 800; line-height: 1.25; margin-bottom: 20px; color: #111; }
+    .card { background: #ffffff; border: 1px solid #e7e5e4; border-radius: 16px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); margin-bottom: 16px; }
+    label { display: block; font-size: 13px; font-weight: 700; color: #292524; margin-bottom: 6px; }
+    input, select { width: 100%; padding: 12px 14px; font-size: 15px; border: 1px solid #d6d3d1; border-radius: 10px; margin-bottom: 16px; outline: none; background: #fff; }
+    input:focus, select:focus { border-color: #1e3a1e; }
+    .btn { display: block; width: 100%; background-color: #1e3a1e; color: #ffffff; text-align: center; font-size: 16px; font-weight: 700; padding: 14px; border: none; border-radius: 12px; cursor: pointer; text-decoration: none; }
+    .btn:hover { background-color: #162c16; }
+    .preview-box { background: #ffffff; border: 1px solid #e7e5e4; border-radius: 16px; padding: 20px; font-size: 13px; color: #57534e; line-height: 1.5; }
+    .preview-title { font-weight: 700; font-size: 14px; color: #1c1917; margin-bottom: 8px; }
+    .footer { text-align: center; font-size: 13px; color: #78716c; margin-top: 24px; padding-bottom: 30px; }
+    .footer b { color: #1c1917; }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="badge">🐾 Animal Protection Initiative</div>
+    <h1>Object to the Draft Laboratory Animals Rules, 2026</h1>
+
+    <div class="card">
+      <label for="fullName">Your name</label>
+      <input type="text" id="fullName" placeholder="Enter your name" oninput="updateDraft()">
+
+      <label for="userState">Your state</label>
+      <select id="userState" onchange="updateDraft()">
+        <option value="Haryana" selected>Haryana</option>
+        <option value="Punjab">Punjab</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Uttar Pradesh">Uttar Pradesh</option>
+        <option value="Rajasthan">Rajasthan</option>
+        <option value="Himachal Pradesh">Himachal Pradesh</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <button type="button" class="btn" onclick="triggerEmail()">Write email</button>
+    </div>
+
+    <div class="preview-box">
+      <div class="preview-title">Read it before you send</div>
+      <p style="margin-bottom: 12px; color: #78716c;">Change your name or state above and this updates.</p>
+      <p><b>To:</b> cpcsea-mef@gov.in</p>
+      <p><b>Subject:</b> Objection: the Draft Laboratory Animals Rules, 2026 need to be withdrawn</p>
+      <hr style="margin: 12px 0; border: none; border-top: 1px solid #f0eee9;">
+      <div id="emailPreview">
+        Respected Authorities,<br><br>
+        I strongly object to the Draft Laboratory Animals Rules, 2026 (G.S.R. 864(E)). The proposed provisions weaken ethical oversight and fail to safeguard animals from avoidable suffering.<br><br>
+        Kindly withdraw these draft rules and ensure stringent protections for animals.<br><br>
+        Regards,<br>
+        <span id="previewName">[Your Name]</span><br>
+        <span id="previewState">Haryana</span>
+      </div>
+    </div>
+
+    <div class="footer">
+      Put together by <b>VANDE MATARAM DAL</b>
+    </div>
+  </div>
+
+  <script>
+    function updateDraft() {
+      const name = document.getElementById('fullName').value.trim();
+      const state = document.getElementById('userState').value;
+      document.getElementById('previewName').innerText = name || '[Your Name]';
+      document.getElementById('previewState').innerText = state;
+    }
+
+    function triggerEmail() {
+      const name = document.getElementById('fullName').value.trim() || 'A Concerned Citizen';
+      const state = document.getElementById('userState').value;
+      const recipient = 'cpcsea-mef@gov.in';
+      const subject = 'Objection: the Draft Laboratory Animals Rules, 2026 need to be withdrawn';
+      const body = `Respected Authorities,\n\nI strongly object to the Draft Laboratory Animals Rules, 2026 (G.S.R. 864(E)). The proposed provisions weaken ethical oversight and fail to safeguard animals from avoidable suffering.\n\nKindly withdraw these draft rules and ensure stringent protections for animals.\n\nRegards,\n${name}\n${state}`;
+      
+      window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    }
+  </script>
+</body>
+</html>
